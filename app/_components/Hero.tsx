@@ -2,7 +2,7 @@
 import {  useState } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowUp, HomeIcon, ImagePlus, Key, LayoutDashboard, User } from "lucide-react"
-
+import { SignInButton } from "@clerk/nextjs"
 
 
 const suggestions = [
@@ -59,9 +59,11 @@ function Hero() {
                 <Button className="cursor-pointer" variant={'ghost'} size={'icon'}>
                     <ImagePlus />
                 </Button>
-                <Button className="cursor-pointer" size={'icon'}>
-                    <ArrowUp />
-                </Button>
+                <SignInButton mode='modal' forceRedirectUrl={"/workspace"}>
+                    <Button disabled={!userInput} className="cursor-pointer" size={'icon'}>
+                        <ArrowUp />
+                    </Button>
+                </SignInButton>
             </div>
         </div>
 

@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { ArrowLeftRight, ArrowRight } from 'lucide-react'
 import Image from 'next/image'
-import path from 'path'
+import { SignInButton } from '@clerk/nextjs'
 
 const MenuOptions = [
     {
@@ -42,7 +42,9 @@ function Header() {
 
             {/* Get Started Button */}
             <div >
-                <Button className='cursor-pointer'>Get Started <ArrowRight /></Button>
+                <SignInButton mode='modal' forceRedirectUrl={"/workspace"}>
+                    <Button className='cursor-pointer'>Get Started <ArrowRight /></Button>
+                </SignInButton>
             </div>
 
         </div>
